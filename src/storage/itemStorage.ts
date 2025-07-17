@@ -36,8 +36,37 @@ async function add(newItem: ItemStorage): Promise<ItemStorage[]>{
     await save(updatedItems);
     return updatedItems;
 }
+async function remove(id: string): Promise<void> {
+    const items = await get();
+    const updatedItems = items.filter(item => item.id !== id);
+    await save(updatedItems);
+}
+async function clearAll(): Promise<void> {
+    try {
+        await AsyncStorage.removeItem(ITEM_STORAGE_KEY);
+    } catch (error) {
+        throw new Error("Erro ao limpar o armazenamento");
+    }
+}
+async function toggleStatus(id: string): Promise<void> {
+    const items = await get();
+    const updatedItems = items.map(item => {
+        if (item.id === id) {
+            if (item.status === FilterStatus.PENDING) {
+                return { ...item, status: FilterStatus.DONE };
+            } else {
+                return { ...item, status: FilterStatus.PENDING };
+            }
+        }
+        return item;
+    });
+    await save(updatedItems);
+}
 export const itemsStorage = {
     get,
     getByStatus,
     add,
+    remove,
+    clearAll,
+    toggleStatus,
 }

@@ -22,7 +22,6 @@ export function Home() {
   const [description, setDescription] = useState("");
   const [items, setItems] = useState<ItemStorage[]>([]);
 
-
   async function handleAdd() {
     if (!description.trim()) {
       Alert.alert("Atenção", "Por favor, insira uma descrição para o item.");
@@ -43,6 +42,38 @@ export function Home() {
       setItems(response);
     } catch (error) {
       Alert.alert("Erro", "Não foi possível carregar os itens.");
+    }
+  }
+  async function handleRemove(id: string) {
+    try {
+      await itemsStorage.remove(id);
+      await itemsByStatus();
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível remover o item.");
+    }
+  }
+
+  function clearAllItems() {
+    Alert.alert("Atenção", "Tem certeza que deseja limpar todos os itens?", [
+      {
+        text: "Cancelar",
+        style: "cancel",
+      },
+      {
+        text: "Limpar",
+        onPress: async () => {
+          await itemsStorage.clearAll();
+          await itemsByStatus();
+        },
+      },
+    ]);
+  }
+  async function toggleItemStatus(id: string) {
+    try {
+      await itemsStorage.toggleStatus(id);
+      await itemsByStatus();
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível alterar o status dos itens.");
     }
   }
   useEffect(() => {
@@ -70,7 +101,7 @@ export function Home() {
               onPress={() => setFilter(status)}
             />
           ))}
-          <TouchableOpacity style={styles.clearButton}>
+          <TouchableOpacity style={styles.clearButton} onPress={clearAllItems}>
             <Text style={styles.clearButtonText}>Limpar</Text>
           </TouchableOpacity>
         </View>
@@ -80,8 +111,8 @@ export function Home() {
           renderItem={({ item }) => (
             <Item
               data={item}
-              onStatus={() => console.log(`Status changed for item ${item.id}`)}
-              onRemove={() => console.log(`Item ${item.id} removed`)}
+              onStatus={() => toggleItemStatus(item.id)}
+              onRemove={() => handleRemove(item.id)}
             />
           )}
           showsVerticalScrollIndicator={false}
