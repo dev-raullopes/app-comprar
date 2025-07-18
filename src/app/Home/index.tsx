@@ -54,6 +54,10 @@ export function Home() {
   }
 
   function clearAllItems() {
+    if (items.length === 0) {
+      Alert.alert("Atenção", "Não há itens para limpar.");
+      return;
+    }
     Alert.alert("Atenção", "Tem certeza que deseja limpar todos os itens?", [
       {
         text: "Cancelar",

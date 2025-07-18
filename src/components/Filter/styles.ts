@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         gap: 5
     },
     title: {
-        fontSize: 12,
+        fontSize: 16,
         fontWeight: 600
     }
 })

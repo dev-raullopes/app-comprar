@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
         marginLeft: "auto",
     },
     clearButtonText: {
-        fontSize: 12,
+        fontSize: 15,
         color: "#828282",
         fontWeight: 600
     },
