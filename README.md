@@ -8,7 +8,7 @@ Este é um aplicativo desenvolvido em React Native (TypeScript) para facilitar o
 
 <p>
   <img src="src/previewApp/screenshot_app1.jpg" alt="Preview 1" width="250"/>
-  <img src="src/previewApp/screenshot_app2.jpg.jpg" alt="Preview 2" width="250"/>
+  <img src="src/previewApp/screenshot_app2.jpg" alt="Preview 2" width="250"/>
 </p>
 
 ## Funcionalidades
