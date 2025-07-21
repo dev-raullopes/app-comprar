@@ -15,6 +15,7 @@ import { FilterStatus } from "@/types/FilterStatus";
 import { Item } from "@/components/Item";
 import { useEffect, useState } from "react";
 import { ItemStorage, itemsStorage } from "@/storage/itemStorage";
+
 const FILTER_STATUS: FilterStatus[] = [FilterStatus.PENDING, FilterStatus.DONE];
 
 export function Home() {
