@@ -6,7 +6,7 @@ Este é um aplicativo desenvolvido em React Native (TypeScript) para facilitar o
 
 ## Preview
 
-<p align="center">
+<p>
   <img src="src/previewApp/screenshot_app1.jpg" alt="Preview 1" width="250"/>
   <img src="src/previewApp/screenshot_app1.jpg" alt="Preview 2" width="250"/>
 </p>
