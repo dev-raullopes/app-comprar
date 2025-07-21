@@ -2,6 +2,8 @@
 
 Este é um aplicativo desenvolvido em React Native (TypeScript) para facilitar o gerenciamento de itens a serem comprados, com funcionalidades de filtro, status e armazenamento local.
 
+> Projeto desenvolvido durante uma aula da formação em React Native da [Rocketseat](https://www.rocketseat.com.br/).
+
 ## Funcionalidades
 - Listagem de itens para comprar
 - Adição, remoção e edição de itens
