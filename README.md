@@ -4,6 +4,13 @@ Este é um aplicativo desenvolvido em React Native (TypeScript) para facilitar o
 
 > Projeto desenvolvido durante uma aula da formação em React Native da [Rocketseat](https://www.rocketseat.com.br/).
 
+## Preview
+
+<p align="center">
+  <img src="src/previewApp/screenshot_app1.jpg" alt="Preview 1" width="250"/>
+  <img src="src/previewApp/screenshot_app1.jpg" alt="Preview 2" width="250"/>
+</p>
+
 ## Funcionalidades
 - Listagem de itens para comprar
 - Adição, remoção e edição de itens
